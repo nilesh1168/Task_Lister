@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}
+        {{ title }}
+    {% endblock %}
+    
+</head>
+<body>
+    {% block app_content %}
+        
+        <div class="container">
+            <h2>{{ task.t_name }}</h3>
+            <hr>
+            <h3>Task Description : </h3>{{ task.t_desc }}
+            <h3>Task Created : </h3>{{ task.timestamp }}
+            <h3>Task Deadline : </h3><span style="color: red;" >{{ task.ddate }}</span>
+        </div>
+        
+    {% endblock %}
+</body>
+</html>

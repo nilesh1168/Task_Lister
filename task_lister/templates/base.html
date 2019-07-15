@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %} - Daily Task Lister</title>
+
+</head>
+
+<body>
+    {% block navbar %}
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container mb-5">
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px;" class="navbar-brand">
+                Daily Task Lister</p>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">More
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_anonymous %}
+                <li>
+                    <a href="{{ url_for('register') }}">
+                        <span class="glyphicon glyphicon-user"></span> Register
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('login') }}">
+                        <span class="glyphicon glyphicon-log-in"></span> Login
+                    </a>
+                </li>
+                {% else %}
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">{{ current_user.username }}
+                        <span class="caret"></span>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ url_for('user',username = current_user.username) }}">
+                                    <span class="glyphicon glyphicon-user"></span> My Tasks
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('profile',username = current_user.username) }}">
+                                    <span class="glyphicon glyphicon-cog"></span>Profile Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('logout') }}">
+                                    <span class="glyphicon glyphicon-log-out"></span> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div style="margin-top: 5%;"></div>
+    {% for message in messages %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 alert alert-warning text-center rcorners my-2" role="alert">{{message}}
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div style="margin-top: 5%;"></div>
+    {% block app_content %}{% endblock %}
+    <div style="margin-top: 5%;"></div>
+    <div class="container inline-p">
+        <legend></legend>
+        <h4>
+            <p class="text-center">&copy; 2019 Nilesh Suryawanshi<p>
+                    <p class="pull-right">
+                        <a href="https://github.com/nilesh1168/Simple-webapp">Contribute to this project</a>
+                    </p>
+        </h4>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    {% endblock  %}
+</body>
+
+</html>
