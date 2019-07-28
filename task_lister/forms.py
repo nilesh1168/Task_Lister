@@ -1,12 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
-from wtforms.validators import DataRequired,Email, EqualTo, ValidationError
+from wtforms import StringField, SubmitField, PasswordField, IntegerField
+from wtforms.validators import DataRequired,Email, EqualTo, ValidationError , Length
 from task_lister.models import User
 from wtforms.fields.html5 import DateField
+
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email(message = "Invalid Email Address")])
+    mobile = StringField('Mobile Number', validators= [DataRequired(), Length(min =10 , max = 10, message = "Mobile Number should be 10 digits")])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired() , EqualTo('password', message = "Passwords must Match!!")])
     submit = SubmitField('Register')
@@ -20,6 +22,7 @@ class RegistrationForm(FlaskForm):
         email = User.query.filter_by(email = email.data).first()
         if email is not None:
             return ValidationError('Please use a different email address.')
+    
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators = [DataRequired(message = "Username Required")])

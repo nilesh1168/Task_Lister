@@ -1,7 +1,8 @@
-from task_lister import app,db
+from task_lister import app,db,mail
 from flask import render_template, redirect, url_for, flash, request, json
 from task_lister.forms import RegistrationForm, LoginForm , TaskForm , ChangePass
 from flask_login import current_user, login_user , logout_user, login_required, user_logged_in
+from flask_mail import Message
 from task_lister.models import User,Task
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
@@ -47,8 +48,10 @@ def register():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username = form.username.data, email = form.email.data)
+        user = User(username = form.username.data, email = form.email.data, mob = form.mobile.data )
         user.set_password(form.password.data)
+        msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'n.suryawanshi1168@gmail.com')
+        mail.send(msg)
         db.session.add(user)
         db.session.commit()
         flash("Congrats!!!! You are now Registered!!")

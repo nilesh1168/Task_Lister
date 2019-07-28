@@ -10,8 +10,9 @@ class User(UserMixin , db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), index = True, unique = True)
     email = db.Column(db.String(120), index = True, unique = True)
+    mob = db.Column(db.Integer,unique = True)
     password_hash = db.Column(db.String(120))
-    tasks = db.relationship('Task', backref = 'author', lazy = 'dynamic')
+    tasks = db.relationship('Task', backref = 'user', lazy = 'dynamic', cascade = 'all, delete-orphan')
 
     def __repr__(self):
         return 'User {}'.format(self.username)
