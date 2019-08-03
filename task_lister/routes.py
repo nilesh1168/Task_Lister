@@ -6,7 +6,13 @@ from flask_mail import Message
 from task_lister.models import User,Task
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
+from twilio.rest import Client
 
+account_sid = "ACa6323d4f06e9409df6cfa4887ade3584"
+
+auth_token  = "f1fbf972cb28c78908f58f8892f5fbe3"
+
+client = Client(account_sid,auth_token)
 
 @app.route("/")
 @app.route("/home")
@@ -50,11 +56,11 @@ def register():
     if form.validate_on_submit():
         user = User(username = form.username.data, email = form.email.data, mob = form.mobile.data )
         user.set_password(form.password.data)
-        msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'n.suryawanshi1168@gmail.com')
+        msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'developernil98@gmail.com')
         mail.send(msg)
+        message = client.messages.create(to="+91"+form.mobile.data ,from_="+12509002936",body="Thank You for registering with Daily Task Lister!")
         db.session.add(user)
         db.session.commit()
-        flash("Congrats!!!! You are now Registered!!")
         return redirect(url_for('login'))        
     return render_template('register.html',title="Register", form=form)
 
