@@ -8,9 +8,9 @@ from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
 from twilio.rest import Client
 
-account_sid = "ACa6323d4f06e9409df6cfa4887ade3584"
+account_sid = "ACa6323d4f06e9409df6cfa4887ade35##"
 
-auth_token  = "f1fbf972cb28c78908f58f8892f5fbe3"
+auth_token  = "f1fbf972cb28c78908f58f8892f5fb##"
 
 client = Client(account_sid,auth_token)
 
