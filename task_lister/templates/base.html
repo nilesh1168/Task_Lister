@@ -49,12 +49,12 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
                     <li>
-                        <a href="{{ url_for('register') }}">
+                        <a name = "register" href="{{ url_for('register') }}">
                             <span class="glyphicon glyphicon-user"></span> Register
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url_for('login') }}">
+                        <a name = "login" href="{{ url_for('login') }}">
                             <span class="glyphicon glyphicon-log-in"></span> Login
                         </a>
                     </li>
