@@ -15,7 +15,7 @@ driver.find_element_by_name("login").click()
 time.sleep(1)
 driver.find_element_by_name("username").send_keys("Nilesh")
 time.sleep(1)
-driver.find_element_by_id("password").send_keys("nil")
+driver.find_element_by_id("password").send_keys("nilesh")
 
 time.sleep(1)
 
@@ -27,18 +27,11 @@ time.sleep(4)
 
 driver.find_element_by_id("user").click()
 time.sleep(1)
-driver.find_element_by_id("profset").click()
+driver.find_element_by_id("mytasks").click()
 time.sleep(1)
 
-driver.find_element_by_id("old_pass").send_keys("")
-time.sleep(1)
-driver.find_element_by_id("new_pass").send_keys("")
-time.sleep(1)
-driver.find_element_by_id("rep_new_pass").send_keys("")
-time.sleep(1)
 
-driver.find_element_by_id("submit").click()
+driver.find_element_by_id("2").click()
 time.sleep(3)
-driver.implicitly_wait(5)
 
 driver.quit()

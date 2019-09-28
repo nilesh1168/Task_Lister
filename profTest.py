@@ -30,15 +30,28 @@ time.sleep(1)
 driver.find_element_by_id("profset").click()
 time.sleep(1)
 
-driver.find_element_by_id("old_pass").send_keys("")
+driver.find_element_by_id("old_pass").send_keys("nil")
 time.sleep(1)
-driver.find_element_by_id("new_pass").send_keys("")
+driver.find_element_by_id("new_pass").send_keys("nilesh")
 time.sleep(1)
-driver.find_element_by_id("rep_new_pass").send_keys("")
+driver.find_element_by_id("rep_new_pass").send_keys("niles")
 time.sleep(1)
 
 driver.find_element_by_id("submit").click()
 time.sleep(3)
+
+driver.refresh()
+
+driver.find_element_by_id("old_pass").send_keys("nil")
+time.sleep(1)
+driver.find_element_by_id("new_pass").send_keys("nilesh")
+time.sleep(1)
+driver.find_element_by_id("rep_new_pass").send_keys("nilesh")
+time.sleep(1)
+
+driver.find_element_by_id("submit").click()
+time.sleep(3)
+
 driver.implicitly_wait(5)
 
 driver.quit()

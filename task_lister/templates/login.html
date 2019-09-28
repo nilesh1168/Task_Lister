@@ -27,7 +27,7 @@
                                 {{ form.hidden_tag() }}
                                 {{ wtf.form_field(form.username) }}
                                 {{ wtf.form_field(form.password) }}  
-                                <p>{{ form.submit }}</p>
+                                <p>{{ wtf.form_field(form.submit) }}</p>
                             </form>
                         </p>
                         New User??<a href="{{ url_for('register') }}"> Register</a>
