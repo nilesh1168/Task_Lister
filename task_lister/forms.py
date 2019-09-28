@@ -36,7 +36,7 @@ class TaskForm(FlaskForm):
     submit = SubmitField('Add Task')
 
 class ChangePass(FlaskForm):
-    old_pass = PasswordField('Old Password',validators = [DataRequired()])
+    old_pass = PasswordField('Old Password',validators = [DataRequired(message = "Old Password is required!!!")])
     new_pass = PasswordField('New Password',validators = [DataRequired()])
     rep_new_pass = PasswordField('Repeat New Password', validators = [DataRequired(),EqualTo('new_pass',message = "Passwords must Match")])
     submit = SubmitField('Change Password')   

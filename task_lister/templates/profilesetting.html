@@ -20,7 +20,13 @@
             <hr>
             <h3>Change Password</h3>
             <br>
-            {{ wtf.quick_form(form) }}
+            <form class="form form-horizontal" method="post" role="form">
+                    {{ form.hidden_tag() }}
+                    {{ wtf.form_field(form.old_pass) }}
+                    {{ wtf.form_field(form.new_pass) }}                                        
+                    {{ wtf.form_field(form.rep_new_pass) }}
+                    {{ wtf.form_field(form.submit) }}
+            </form>
         </div>
         
     {% endblock %}

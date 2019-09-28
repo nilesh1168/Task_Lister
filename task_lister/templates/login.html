@@ -22,7 +22,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title text-center">Login</h4>
-                        <p class="card-text">{{ wtf.quick_form(form) }}</p>
+                        <p class="card-text">
+                            <form action="" method="post" novalidate>
+                                {{ form.hidden_tag() }}
+                                {{ wtf.form_field(form.username) }}
+                                {{ wtf.form_field(form.password) }}  
+                                <p>{{ form.submit }}</p>
+                            </form>
+                        </p>
                         New User??<a href="{{ url_for('register') }}"> Register</a>
                     </div>
                 </div>

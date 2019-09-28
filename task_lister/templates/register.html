@@ -23,7 +23,17 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title text-center">Register</h4>
-                        <p class="card-text">{{ wtf.quick_form(form) }}</p>
+                        <p class="card-text">
+                                <form class="form form-horizontal" method="post" role="form">
+                                        {{ form.hidden_tag() }}
+                                        {{ wtf.form_field(form.username) }}
+                                        {{ wtf.form_field(form.email) }}                                        
+                                        {{ wtf.form_field(form.password) }}
+                                        {{ wtf.form_field(form.password2) }}
+                                        {{ wtf.form_field(form.submit) }}
+                                </form>
+                            <!-- {{ wtf.quick_form(form) }} -->
+                        </p>
                     </div>
                 </div>
             </div>
