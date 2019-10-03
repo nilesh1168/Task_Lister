@@ -7,7 +7,7 @@ driver = webdriver.Chrome('/usr/local/bin/chromedriver')
 driver.maximize_window()
 driver.implicitly_wait(4)
 
-driver.get("http://127.0.0.1:5000/")
+driver.get("http://nileshs.pythonanywhere.com/")
 
 time.sleep(2)
 
@@ -50,6 +50,12 @@ driver.find_element_by_id("rep_new_pass").send_keys("nilesh")
 time.sleep(1)
 
 driver.find_element_by_id("submit").click()
+time.sleep(3)
+
+#logout
+driver.find_element_by_id("user").click()
+time.sleep(1)
+driver.find_element_by_id("logout").click()
 time.sleep(3)
 
 driver.implicitly_wait(5)

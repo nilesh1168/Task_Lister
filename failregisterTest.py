@@ -10,10 +10,10 @@ driver.implicitly_wait(50)
 
 
 # Navigate to the application home page
-driver.get("http://127.0.0.1:5000/")
+driver.get("http://nileshs.pythonanywhere.com/")
 
 time.sleep(3)
-# get the search textbox
+#Register Fail
 driver.find_element_by_name("register").click()
 
 username = driver.find_element_by_name("username")

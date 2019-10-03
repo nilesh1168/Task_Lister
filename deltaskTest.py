@@ -7,10 +7,10 @@ driver = webdriver.Chrome('/usr/local/bin/chromedriver')
 driver.maximize_window()
 driver.implicitly_wait(4)
 
-driver.get("http://127.0.0.1:5000/")
+driver.get("http://nileshs.pythonanywhere.com/")
 
 time.sleep(2)
-
+#Login
 driver.find_element_by_name("login").click()
 time.sleep(1)
 driver.find_element_by_name("username").send_keys("Nilesh")

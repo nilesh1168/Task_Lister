@@ -7,7 +7,7 @@ driver = webdriver.Chrome('/usr/local/bin/chromedriver')
 driver.maximize_window()
 driver.implicitly_wait(4)
 
-driver.get("http://127.0.0.1:5000/")
+driver.get("http://nileshs.pythonanywhere.com/")
 
 time.sleep(2)
 
