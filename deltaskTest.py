@@ -1,6 +1,6 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.keys import Keys
 
 
 driver = webdriver.Chrome('/usr/local/bin/chromedriver')
@@ -31,12 +31,13 @@ driver.find_element_by_id("mytasks").click()
 time.sleep(1)
 
 
-driver.find_element_by_id("2").click()
+driver.find_element_by_name("3").click()
 
 #logout
 driver.find_element_by_id("user").click()
 time.sleep(1)
 driver.find_element_by_id("logout").click()
+
 time.sleep(3)
 
 driver.quit()

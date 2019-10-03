@@ -13,7 +13,7 @@ driver.implicitly_wait(50)
 
 
 # Navigate to the application home page
-driver.get("http://nileshs.pythonanywhere.com/")
+driver.get("http://127.0.0.1:5000/")
 
 time.sleep(3)
 # get the search textbox

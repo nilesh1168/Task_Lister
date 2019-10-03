@@ -33,13 +33,21 @@ time.sleep(1)
 driver.find_element_by_id("addtask").click()
 time.sleep(2)
 
-driver.find_element_by_name("t_head").send_keys("Selenium")
+driver.find_element_by_name("t_head").send_keys("Chaitanya")
 time.sleep(1)
-driver.find_element_by_name("t_body").send_keys("Added task by Selenium ")
+driver.find_element_by_name("t_body").send_keys("Added task by Chaitanya ")
 time.sleep(1)
-driver.find_element_by_id("ddate").send_keys("12/10/2019")
+driver.find_element_by_id("ddate").send_keys("18/10/2019")
 time.sleep(1)
 driver.find_element_by_id("submit").click()
+time.sleep(1)
 
-time.sleep(3)
+
+#logout
+driver.find_element_by_id("user").click()
+time.sleep(1)
+driver.find_element_by_id("logout").click()
+
+
+time.sleep(2)
 driver.quit()
