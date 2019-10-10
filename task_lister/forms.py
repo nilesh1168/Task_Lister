@@ -22,6 +22,11 @@ class RegistrationForm(FlaskForm):
         email = User.query.filter_by(email = email.data).first()
         if email is not None:
             return ValidationError('Please use a different email address.')
+
+    def validate_mobile(self, mobile):
+        mob = User.query.filter_by(mob = mobile.data).first()
+        if mob is not None:
+            return ValidationError('Please use a different Mobile Number.')        
     
 
 class LoginForm(FlaskForm):

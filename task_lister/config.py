@@ -9,4 +9,4 @@ class Config():
     MAIL_PORT =  465
     MAIL_USE_SSL = True
     MAIL_USERNAME = 'developernil98@gmail.com'
-    MAIL_PASSWORD = 'nilesh@8101998'
+    MAIL_PASSWORD = 'dattaraj@8101998'

@@ -8,11 +8,12 @@ from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
 from twilio.rest import Client
 
-account_sid = "ACa6323d4f06e9409df6cfa4887ade35##"
 
-auth_token  = "f1fbf972cb28c78908f58f8892f5fb##"
+#account_sid = "ACa6323d4f06e9409df6cfa4887ade35##"
 
-client = Client(account_sid,auth_token)
+#auth_token  = "f1fbf972cb28c78908f58f8892f5fb##"
+
+#client = Client(account_sid,auth_token)
 
 @app.route("/")
 @app.route("/home")
@@ -50,6 +51,7 @@ def logout():
 
 @app.route("/register", methods = ['GET','POST'])
 def register():
+    print("Inside register")
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
@@ -57,12 +59,14 @@ def register():
         user = User(username = form.username.data, email = form.email.data, mob = form.mobile.data )
         user.set_password(form.password.data)
         msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'developernil98@gmail.com')
+        print("before mail")
         mail.send(msg)
+        print("After mail")
         #message = client.messages.create(to="+91"+form.mobile.data ,from_="+12509002936",body="Thank You for registering with Daily Task Lister!")
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('login'))        
-    return render_template('register.html',title="Register", form=form)
+    return render_template('register.html',title="Register", form = form)
 
 
 
@@ -135,3 +139,4 @@ def about():
 @app.route("/feedback")
 def feedback():
     return render_template('underconst.html',title = 'Feedback')
+
