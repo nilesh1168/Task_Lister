@@ -51,7 +51,6 @@ def logout():
 
 @app.route("/register", methods = ['GET','POST'])
 def register():
-    print("Inside register")
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
@@ -59,9 +58,7 @@ def register():
         user = User(username = form.username.data, email = form.email.data, mob = form.mobile.data )
         user.set_password(form.password.data)
         msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'developernil98@gmail.com')
-        print("before mail")
         mail.send(msg)
-        print("After mail")
         #message = client.messages.create(to="+91"+form.mobile.data ,from_="+12509002936",body="Thank You for registering with Daily Task Lister!")
         db.session.add(user)
         db.session.commit()
@@ -93,7 +90,7 @@ def newtask(username):
 
 
 
-@app.route("/deltask/<t_id>", methods = ['POST', 'GET'])
+@app.route("/deltask/<t_id>", methods = ['POST'])
 def deltask(t_id):
     task = Task.query.filter_by(id = t_id).first_or_404()
     db.session.delete(task)

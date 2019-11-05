@@ -12,6 +12,7 @@
         {% block title %}
         {{ title }}
         {% endblock %}
+        
 </head>
 
 <body>
@@ -36,14 +37,13 @@
                                                 </thead>
                                                 <tbody>
                                                         {% for task in tasks %}
-                                                        <tr>
+                                                        <tr class = "{{ task.id }}">
                                                                 <td>{{ task.id }}</td>
                                                                 <td><a id = "{{ task.id }}" href="{{ url_for('desc_task',username=current_user.username,t_id=task.id) }}">{{ task.t_name }}</a>
                                                                 </td>
-                                                                <td><a class="button" name = "{{ task.id }}"
-                                                                                href="{{ url_for('deltask',t_id=task.id) }}"><span
-                                                                                        class="glyphicon glyphicon-minus-sign"
-                                                                                        aria-hidden="true"></span></a>
+                                                                <td>
+                                                                        <a class="button" name = "{{ task.id }}" onclick="deletet({{ task.id }})">
+                                                                        <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
                                                                 </td>
                                                         </tr>
                                                         {% endfor %}
