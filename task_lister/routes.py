@@ -6,7 +6,6 @@ from flask_mail import Message
 from task_lister.models import User,Task
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
-from twilio.rest import Client
 
 
 #account_sid = "ACa6323d4f06e9409df6cfa4887ade35##"
@@ -59,6 +58,7 @@ def register():
         user.set_password(form.password.data)
         msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'developernil98@gmail.com')
         mail.send(msg)
+        flash("An email has been sent to "+form.email.data+"!")
         #message = client.messages.create(to="+91"+form.mobile.data ,from_="+12509002936",body="Thank You for registering with Daily Task Lister!")
         db.session.add(user)
         db.session.commit()
@@ -104,6 +104,17 @@ def desc_task(username,t_id):
     task = Task.query.filter_by(id = t_id).first_or_404()
     return render_template('taskdetails.html',title = 'Details',task = task)
 
+@app.route('/user/<username>/editDesc/<t_id>',methods=['GET','POST'])
+def editDesc(username,t_id):
+    task = Task.query.filter_by(id = t_id).first_or_404()
+    user = User.query.filter_by(username = username).first_or_404()
+    form = TaskForm()
+    if form.validate_on_submit():
+        task.t_desc = form.t_body.data;
+        db.session.commit()
+        flash(" Task Description Edited Successfully !!!")
+        return redirect(url_for('user', username = current_user.username))     
+    return render_template('newtask.html',title = 'Edit Task Description', form = form, task = task)
 
 @app.route('/user/<username>/profile', methods = ['GET','POST'])
 def profile(username):

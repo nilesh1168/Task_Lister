@@ -17,7 +17,7 @@
         <div class="container">
             <h2>{{ task.t_name }}</h3>
             <hr>
-            <h3>Task Description : </h3>{{ task.t_desc }}
+            <a href="{{ url_for('editDesc', username=current_user.username, t_id = task.id) }}" data-toggle="tooltip" title="Edit Description"><h3>Task Description :</h3></a> {{ task.t_desc }}
             <h3>Task Created : </h3>{{ task.timestamp }}
             <h3>Task Deadline : </h3><span style="color: red;" >{{ task.ddate }}</span>
         </div>

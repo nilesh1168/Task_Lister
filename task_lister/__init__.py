@@ -7,7 +7,8 @@ from task_lister.config import Config
 from flask_login import LoginManager
 from dateutil.tz import tzlocal 
 from datetime import datetime
-app = Flask(__name__)
+
+application = app = Flask(__name__)
 app.config.from_object(Config)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
