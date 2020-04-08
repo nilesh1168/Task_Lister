@@ -42,7 +42,7 @@
                                                                 <td><a id = "{{ task.id }}" href="{{ url_for('desc_task',username=current_user.username,t_id=task.id) }}">{{ task.t_name }}</a>
                                                                 </td>
                                                                 <td>
-                                                                        <a class="button" name = "{{ task.id }}" onclick="deletet({{ task.id }})">
+                                                                        <a class="button" name = "{{ task.id }}" onclick="deletet({{ task.id }},'{{ url_for('deltask',t_id =  task.id ) }}')">
                                                                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
                                                                 </td>
                                                         </tr>
@@ -69,7 +69,7 @@
         </div>
 
         {% endif %}
-
+        
         {% endblock %}
 </body>
 
