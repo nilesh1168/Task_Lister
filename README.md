@@ -13,3 +13,4 @@
 >     - *The user gets an email notification 24 hrs prior to the task deadline*.
 
 ### Preview
+![Home Page](home.png)
