@@ -13,4 +13,13 @@
 >     - *The user gets an email notification 24 hrs prior to the task deadline*.
 
 ### Preview
-![Home Page](home.png)
+![Home Page](home.png "Home Page")
+![New Task](task_new.png "New Task")
+![Task](task.png "Task")
+
+
+### Note
+- In config.py use your own
+    - database URL
+    - Email  *(Mandatory for email notification)*
+    - Password  *(Mandatory for email notification)*
