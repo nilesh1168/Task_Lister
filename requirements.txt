@@ -54,7 +54,7 @@ ptyprocess==0.6.0
 py-vapid==1.7.0
 pycodestyle==2.5.0
 pycparser==2.19
-Pygments==2.4.2
+Pygments==2.7.4
 PyJWT==1.7.1
 PyMySQL==0.9.3
 PySocks==1.7.0
