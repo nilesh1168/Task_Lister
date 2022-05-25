@@ -55,7 +55,7 @@ py-vapid==1.7.0
 pycodestyle==2.5.0
 pycparser==2.19
 Pygments==2.4.2
-PyJWT==1.7.1
+PyJWT==2.4.0
 PyMySQL==0.9.3
 PySocks==1.7.0
 python-dateutil==2.6.1
