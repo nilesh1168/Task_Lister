@@ -17,7 +17,7 @@ Click==7.0
 configparser==4.0.2
 cryptography==43.0.1
 decorator==4.4.0
-dnspython==1.16.0
+dnspython==2.6.1
 docutils==0.15.2
 dominate==2.4.0
 Flask==1.1.1
