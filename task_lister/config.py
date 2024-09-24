@@ -8,5 +8,5 @@ class Config():
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT =  465
     MAIL_USE_SSL = True
-    MAIL_USERNAME = 'eamil@gmail.com'
-    MAIL_PASSWORD = 'Password'
+    MAIL_USERNAME = os.environ.get('EMAIL') 
+    MAIL_PASSWORD = os.environ.get('EMAIL_TOKEN')
