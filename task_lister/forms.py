@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, IntegerField
 from wtforms.validators import DataRequired,Email, EqualTo, ValidationError , Length
 from task_lister.models import User
-from wtforms.fields.html5 import DateField
+from wtforms.fields import DateField
 
 
 class RegistrationForm(FlaskForm):
