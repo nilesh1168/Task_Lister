@@ -7,11 +7,10 @@ instance/*
 !instance/.gitignore
 .webassets-cache
 .db
+.vscode
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
-__pycache__/
-POC/__pycache__/
-POC/tests/__pycache__/
+*__pycache__/
 *.py[cod]
 *$py.class
 
