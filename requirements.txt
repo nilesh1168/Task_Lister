@@ -15,7 +15,7 @@ cffi==1.13.2
 chardet==3.0.4
 Click==7.0
 configparser==4.0.2
-cryptography==2.8
+cryptography==3.2
 decorator==4.4.0
 dnspython==1.16.0
 docutils==0.15.2
