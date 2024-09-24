@@ -4,7 +4,8 @@ from task_lister.forms import RegistrationForm, LoginForm , TaskForm , ChangePas
 from flask_login import current_user, login_user , logout_user, login_required, user_logged_in
 from flask_mail import Message
 from task_lister.models import User,Task
-from werkzeug.urls import url_parse
+# from werkzeug.urls import url_parse
+from urllib.parse import urlparse
 from werkzeug.security import generate_password_hash
 
 
@@ -35,7 +36,7 @@ def login():
             return redirect(url_for('login'))
         login_user(user)
         next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
+        if not next_page or urlparse(next_page).netloc != '': #url_parse(next_page).netloc != '':
             next_page = url_for('home')
         return redirect(next_page)
     return render_template('login.html', title = 'Login', form = form)          
