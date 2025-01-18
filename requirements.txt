@@ -43,6 +43,7 @@ Flask-SQLAlchemy==3.1.1
 Flask-WTF==1.2.1
 frozenlist==1.4.1
 greenlet==3.1.1
+gunicorn==23.0.0
 h11==0.14.0
 http_ece==1.2.1
 idna==3.10
