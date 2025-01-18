@@ -18,7 +18,7 @@ def addTask():
     time.sleep(1)
     driver.find_element_by_name("t_body").send_keys("Added task by Random ")
     time.sleep(1)
-    driver.find_element_by_id("ddate").send_keys("18/10/2019")
+    driver.find_element_by_id("ddate").send_keys("18/10/2025")
     time.sleep(1)
     driver.find_element_by_id("submit").click()
     time.sleep(1)
