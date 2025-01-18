@@ -1,7 +1,7 @@
 from task_lister import application,db,mail
 from task_lister.models import Task,User
 from flask_mail import Message
-import datetime
+import datetime, os
 from apscheduler.schedulers.background import BackgroundScheduler
 from task_lister.config import Config
 
@@ -23,4 +23,4 @@ if __name__ == "__main__":
     sched = BackgroundScheduler(daemon=True)
     sched.add_job(sensor,'interval',hours=23)
     sched.start()
-    application.run()
+    application.run(debug=Config.IS_DEBUG)
