@@ -30,6 +30,18 @@
 | `MAIL_SERVER`             | Mail server for the email notifications              |
 | `EMAIL`                   | Email address from which notifications would be sent |
 | `EMAIL_TOKEN`             | Password for the email address account               |
+| `TASK_LISTER_DEBUG`         | To specify if the environment is production or development |
+| `TASK_LISTER_KOYEB_DB`      | Database URL for the database hosted on Koyeb        |
+
+### Note on `psycopg2` in Flask
+
+When using `psycopg2` in Flask, ensure that the database URI starts with `postgresql://` instead of `postgres://`. 
+
+For example, use:  
+`postgresql://username@localhost:5432/template1`
+
+SQLAlchemy previously supported both `postgres://` and `postgresql://`, but support for the `postgres` scheme has been removed. Make sure to update your connection string to avoid compatibility issues.
+
 
 ### Setting Up Google SMTP for Sending Emails
 
