@@ -7,6 +7,7 @@ from task_lister.models import User,Task
 # from werkzeug.urls import url_parse
 from urllib.parse import urlparse
 from werkzeug.security import generate_password_hash
+from task_lister.config import Config
 
 
 #account_sid = "ACa6323d4f06e9409df6cfa4887ade35##"
@@ -58,7 +59,7 @@ def register():
     if form.validate_on_submit():
         user = User(username = form.username.data, email = form.email.data, mob = form.mobile.data )
         user.set_password(form.password.data)
-        msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = 'developernil98@gmail.com')
+        msg = Message(subject = 'Welcome to Task Lister',recipients = [form.email.data], body = 'Welcome to Daily Task Lister '+form.username.data+'.\n This mail is to inform that you are successfully registered on Task Lister.\n Thank You!!!!',sender = Config.MAIL_USERNAME)
         mail.send(msg)
         flash("An email has been sent to "+form.email.data+"!")
         #message = client.messages.create(to="+91"+form.mobile.data ,from_="+12509002936",body="Thank You for registering with Daily Task Lister!")
